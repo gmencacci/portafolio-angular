@@ -14,16 +14,15 @@ export class ItemComponent implements OnInit {
 
 
   id: string = "";
-  prod: ProductoItem;
-  // = {
-  //   categoria: "",
-  //   desc1: "",
-  //   desc2: "",
-  //   producto: "",
-  //   resumen: "",
-  //   subtitulo1: "",
-  //   subtitulo2: ""
-  // };
+  prod: ProductoItem = {
+    categoria: "",
+    desc1: "",
+    desc2: "",
+    producto: "",
+    resumen: "",
+    subtitulo1: "",
+    subtitulo2: ""
+  };
 
   constructor(private router: ActivatedRoute,
     private productoService: ProductosService) { }

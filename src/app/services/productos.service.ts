@@ -17,9 +17,10 @@ export class ProductosService {
   }
 
   cargarProducto() {
+    this.cargando = true;
     return new Promise<void>((resolve, reject) => {
       this.http.get<Producto[]>('https://angular-portafolio-eba02-default-rtdb.firebaseio.com/productos_idx.json')
-        .pipe(delay(2000))
+        .pipe(delay(1000))
         .subscribe((resp: Producto[]) => {
           this.productos = resp;
           this.cargando = false;
@@ -29,11 +30,11 @@ export class ProductosService {
   }
 
   cargarProductoPorId(id: string) {
-    return this.http.get(`https://angular-portafolio-eba02-default-rtdb.firebaseio.com/productos/${id}.json`)
-  }  
-  
-  async buscarProducto(termino: string) {   
-    
+    return this.http.get<ProductoItem>(`https://angular-portafolio-eba02-default-rtdb.firebaseio.com/productos/${id}.json`)
+  }
+
+  async buscarProducto(termino: string) {
+
     if (this.productos.length === 0) {
       await this.cargarProducto();
     }

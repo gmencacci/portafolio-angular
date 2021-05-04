@@ -12,8 +12,6 @@ export class PortafolioComponent implements OnInit {
   constructor(public productoService: ProductosService) {     
   }
   
-  ngOnInit(): void {
-    console.log(this.productoService.productos);
-  }
+  ngOnInit(): void { }
 
 }
